@@ -1,0 +1,38 @@
+.flag-card {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+
+    max-height: 10em;
+    max-width: 15em;
+}
+
+.flag-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s cubic-bezier(.24,.78,.36,.15);
+    
+}
+
+.flag-img:hover {
+    border: solid white;
+    transform: scale(1.05);
+}
+
+.country-name {
+    background: #b8b8b8;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.country-name span {
+    width: 100%;
+}
+
+.country-input {
+    width: 100%;
+}
