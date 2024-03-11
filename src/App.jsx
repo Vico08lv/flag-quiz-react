@@ -23,7 +23,9 @@ function App() {
 
   const [langue, setLangue] = useState(false)
 
-  // const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
+
+  // shuffle data after the api fetch data and before putting it into APIState
+  const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 
   useEffect(() => {
     setAPIState({ ...APIState, loading: true })
@@ -35,7 +37,7 @@ function App() {
         return res.json()
       })
       .then(data => {
-        setAPIState({ loading: false, error: false, data: data })
+        setAPIState({ loading: false, error: false, data: shuffle(data) })
       })
       .catch(() => {
         setAPIState({ loading: false, error: true, data: undefined })
@@ -45,7 +47,6 @@ function App() {
   let content;
   if (APIState.loading) content = <img src={spinner} alt="icône de chargement lors du chargement des données" />
   else if (APIState.error) content = <p>Une erreur est survenue</p>
-
   //optionnal chaining
   else if (APIState.data?.length > 0) {
     content = <>
@@ -58,6 +59,7 @@ function App() {
             langue={langue}
           // setScore={setScore}
           />
+          
         )}
       </div>
     </>
@@ -65,6 +67,7 @@ function App() {
   else if (APIState.data?.length === 0) {
     content = <p>Aucune donnée </p>
   }
+
 
   return (
     <div>

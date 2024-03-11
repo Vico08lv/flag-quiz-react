@@ -27,7 +27,7 @@ export default function flagCard({ country, langue }) {
     if (e.target.value.toUpperCase() === c.toUpperCase()) {
       setValidEntry(true)
       let next = document.getElementById(c).parentElement.parentElement.nextElementSibling.children
-      console.log(next[1])
+      // console.log(next[1])
       next[1].firstChild.focus()
       document.getElementById(c).setAttribute("disabled", "")
       dispatch(increment())
